@@ -5,11 +5,37 @@
   text-align: center;
 }
 
+
+.container-ruleta{
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
+.monedas{
+  position: absolute;
+  top: 5px;
+  left: 50px;
+  width: 250px;
+}
+
+.tiradas{
+  position: absolute;
+  top: 5px;
+  left: 355px;
+  width: 40px;
+}
+
+.monedas img{
+  width: 40px;
+}
+
 .plafon{
   position: relative;
   margin: 10 auto 0;
   text-align: center;
   width: 720px;
+  margin-top: 90px;
 }
 
 .ruleta{
@@ -19,6 +45,7 @@
   background-position: center;
   margin: 0 auto 15px;
 }
+
 .central{
   position: absolute;
   right:  0;
@@ -27,10 +54,86 @@
   top: 174px;
   margin: auto;
 }
+
 img{
   width: 100%;
 }
 
 .barra1{
-  
+  background-color: #444444;
+  width: 250px;
+  height: 20px;
+  border-radius: 12px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.mi_barra{
+  border-radius: 8px;
+  width: 0%;
+  height: 20px;
+  background-color: orange;
+  animation-name: animacionBarra;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.parate{
+  animation-play-state: paused;
+}
+
+.barra-inferior{
+  margin-top: 20px;
+}
+
+@keyframes animacionBarra {
+  0%{
+    width: 0%;
+  }
+  50%{
+    width: 100%;
+  }
+  100%{
+    width: 0%;
+  }
+}
+
+@media (max-width:480px) {
+
+  .plafon{
+    margin-top: 200px;
+  }
+
+  .monedas{
+    position: absolute;
+    top: 5px;
+    left: 35px;
+    width: 35px;
+  }
+
+  .tiradas{
+    position: absolute;
+    top: 5px;
+    left: 233px;
+    width: 40px;
+  }
+
+  .ruleta{
+    width: 250px;
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    margin: 0 auto 15px;
+  }
+
+  .central{
+    position: absolute;
+    right:  0;
+    left: 0;
+    width: 60px;
+    top: 87px;
+    margin: auto;
+  }
+
 }
