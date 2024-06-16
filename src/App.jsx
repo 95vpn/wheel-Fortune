@@ -3,6 +3,7 @@ import { useRef, useState } from 'react';
 import viteLogo from '/vite.svg'
 import './App.css';
 
+
 function App() {
 
   const [ancho, setAncho] = useState(1);
@@ -77,43 +78,47 @@ function App() {
   }
 
   return (
-    <div className='container-ruleta'>
-      <div className='monedas'>
-        {Array.from({ length: dinero }, (_, index) =>
-          <img key={index} src="./assets/moneda.png" alt="moneda" />
-        )}
-      </div>
-      <div className='tiradas'>
-        {Array.from({ length: tiradas }, (_, index) =>
-          <img key={index} src="./assets/ticket.png" alt="ticket" />
-        )}
-      </div>
-      <div className='plafon'>
-        <div className='ruleta' style={{
-          backgroundImage: `url('./assets/ruleta.png')`,
-          transform: `rotate(${rotation}deg`,
-          transition: "transform 6s cubic-bezier(0.2,0.8,0.7,0.99)"
-        }} onTransitionEnd={final}>
+    <div className='wrapper'>
+      {/* <h1>Bienvenido a la Rueda de la fortuna</h1> */}
+      <div className='container-ruleta'>
+        <div className='monedas'>
+          {Array.from({ length: dinero }, (_, index) =>
+            <img key={index} src="./assets/moneda.png" alt="moneda" />
+          )}
+        </div>
+        <div className='tiradas'>
+          {Array.from({ length: tiradas }, (_, index) =>
+            <img key={index} src="./assets/ticket.png" alt="ticket" />
+          )}
+        </div>
+        <div className='plafon'>
 
-        </div>
-        <div className='premio'>
-          {premio}
-        </div>
-        {situacion === 0 &&
-          <div className='barra1'>
-            <div className='mi_barra' ref={barraRef}></div>
+          <div className='ruleta' style={{
+            backgroundImage: `url('./assets/ruleta.png')`,
+            transform: `rotate(${rotation}deg`,
+            transition: "transform 6s cubic-bezier(0.2,0.8,0.7,0.99)"
+          }} onTransitionEnd={final}>
+
           </div>
-        }
-        {situacion === 2 && <h1>No te quedan mas tiradas. Has ganado ${dinero} monedas</h1>}
-        <div className='barra-inferior'>
-          {tiradas > 0 && <button className='lanzar' onClick={lanzar}>Lanzar</button>}
-        </div>
-        <div className='central'>
-          <img src="./assets/central.png" alt="central" />
+          <div className='premio'>
+            {premio}
+          </div>
+          {situacion === 0 &&
+            <div className='barra1'>
+              <div className='mi_barra' ref={barraRef}></div>
+            </div>
+          }
+          {situacion === 2 && <h1>No te quedan mas tiradas. Has ganado ${dinero} monedas</h1>}
+          <div className='barra-inferior'>
+            {tiradas > 0 && <button className='lanzar' onClick={lanzar}>Lanzar</button>}
+          </div>
+          <div className='central'>
+            <img src="./assets/central.png" alt="central" />
+          </div>
+
         </div>
 
       </div>
-
     </div>
   )
 }
